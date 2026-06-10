@@ -8,6 +8,11 @@ import MenuScreen    from './src/screens/MenuScreen';
 import GameScreen    from './src/screens/GameScreen';
 import ResultScreen  from './src/screens/ResultScreen';
 
+/**
+ *
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 function Navigator() {
     const { state } = useGame();
 
@@ -20,6 +25,11 @@ function Navigator() {
     }
 }
 
+/**
+ *
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 export default function App() {
     return (
         <GameProvider>
