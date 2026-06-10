@@ -70,7 +70,7 @@ export default function GameScreen() {
         }, 1000);
 
         return () => clearInterval(timerRef.current);
-    }, [state.wordIndex, currentWordObj]);
+    }, [state.wordIndex, currentWordObj, progressAnim]);
 
     // ── Measure slot positions ───────────────────────────────────────────────────
     const onSlotRef = useCallback((index, ref) => {
@@ -185,7 +185,7 @@ export default function GameScreen() {
                 setTiles(prev => prev.map(t => ({ ...t, isPlaced: false })));
             });
         }
-    }, [slots, currentWordObj, difficulty]);
+    }, [slots, currentWordObj.word, difficulty.timeBonus, feedbackAnim, dispatch]);
 
     // ── Skip ──────────────────────────────────────────────────────────────────────
     const handleSkip = () => {
