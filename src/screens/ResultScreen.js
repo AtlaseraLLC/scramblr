@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import {
     View, Text, TouchableOpacity, StyleSheet, Animated, Dimensions,
 } from 'react-native';
-import { COLORS, MAX_ROUND_WORDS, POINTS_PER_WORD } from '../constants';
+import { COLORS, MAX_ROUND_WORDS, POINTS_PER_WORD } from '../utils/Constants';
 import { useGame } from '../utils/GameContext';
 
 const { width } = Dimensions.get('window');

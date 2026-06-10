@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 import { GameProvider, useGame } from './src/utils/GameContext';
-import { COLORS } from './src/constants';
+import { COLORS } from './src/utils/Constants';
 
 import SplashScreen  from './src/screens/SplashScreen';
 import MenuScreen    from './src/screens/MenuScreen';

@@ -3,7 +3,7 @@ import {
     View, Text, TouchableOpacity, StyleSheet,
     Animated, Dimensions, ScrollView,
 } from 'react-native';
-import { COLORS, TILE_SIZE, TILE_GAP, DIFFICULTY_CONFIG, POINTS_PER_WORD, POINTS_TIME_BONUS, MAX_ROUND_WORDS } from '../constants';
+import { COLORS, TILE_SIZE, TILE_GAP, DIFFICULTY_CONFIG, POINTS_PER_WORD, POINTS_TIME_BONUS, MAX_ROUND_WORDS } from '../utils/Constants';
 import { scrambleWord } from '../data/words';
 import { useGame } from '../utils/GameContext';
 import LetterTile from '../components/LetterTile';

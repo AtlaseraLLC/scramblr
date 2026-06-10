@@ -1,0 +1,180 @@
+{"_e":"root:init","_t":1781129198097,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781129198098,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781129198100,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781129198304,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781129198599,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781129199305,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1781129311447,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781129311447,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781129311451,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781129311977,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1781129312078,"id":"1","progress":0.04000000000000001,"total":4,"current":2}
+{"_e":"metro:bundling:progress","_t":1781129312324,"id":"1","progress":0.09,"total":4,"current":3}
+{"_e":"metro:bundling:progress","_t":1781129312424,"id":"1","progress":0.21006944444444442,"total":24,"current":11}
+{"_e":"metro:bundling:progress","_t":1781129312528,"id":"1","progress":0.21006944444444442,"total":136,"current":19}
+{"_e":"metro:bundling:progress","_t":1781129312629,"id":"1","progress":0.21006944444444442,"total":167,"current":28}
+{"_e":"metro:bundling:progress","_t":1781129312757,"id":"1","progress":0.21006944444444442,"total":180,"current":32}
+{"_e":"metro:bundling:progress","_t":1781129312858,"id":"1","progress":0.21006944444444442,"total":191,"current":38}
+{"_e":"metro:bundling:progress","_t":1781129312958,"id":"1","progress":0.21006944444444442,"total":199,"current":42}
+{"_e":"metro:bundling:progress","_t":1781129313062,"id":"1","progress":0.21006944444444442,"total":217,"current":54}
+{"_e":"metro:bundling:progress","_t":1781129313163,"id":"1","progress":0.21006944444444442,"total":235,"current":67}
+{"_e":"metro:bundling:progress","_t":1781129313265,"id":"1","progress":0.21006944444444442,"total":249,"current":85}
+{"_e":"metro:bundling:progress","_t":1781129313365,"id":"1","progress":0.21006944444444442,"total":274,"current":111}
+{"_e":"metro:bundling:progress","_t":1781129313466,"id":"1","progress":0.24305589515379727,"total":286,"current":141}
+{"_e":"metro:bundling:progress","_t":1781129313566,"id":"1","progress":0.33844586843874847,"total":318,"current":185}
+{"_e":"metro:bundling:progress","_t":1781129313667,"id":"1","progress":0.40702128221609774,"total":337,"current":215}
+{"_e":"metro:bundling:progress","_t":1781129313769,"id":"1","progress":0.40702128221609774,"total":409,"current":256}
+{"_e":"metro:bundling:progress","_t":1781129313870,"id":"1","progress":0.44142615474005176,"total":441,"current":293}
+{"_e":"metro:bundling:progress","_t":1781129313971,"id":"1","progress":0.49030639361452527,"total":457,"current":320}
+{"_e":"metro:bundling:progress","_t":1781129314071,"id":"1","progress":0.5457634268578425,"total":467,"current":345}
+{"_e":"metro:bundling:progress","_t":1781129314171,"id":"1","progress":0.6185340300095205,"total":473,"current":372}
+{"_e":"metro:bundling:progress","_t":1781129314272,"id":"1","progress":0.6750976903707214,"total":499,"current":410}
+{"_e":"metro:bundling:progress","_t":1781129314378,"id":"1","progress":0.7643362500530722,"total":509,"current":445}
+{"_e":"metro:bundling:progress","_t":1781129314480,"id":"1","progress":0.8261326688966583,"total":527,"current":479}
+{"_e":"metro:bundling:progress","_t":1781129314580,"id":"1","progress":0.8544307675549081,"total":542,"current":501}
+{"_e":"metro:bundling:progress","_t":1781129314681,"id":"1","progress":0.8544307675549081,"total":569,"current":518}
+{"_e":"metro:bundling:progress","_t":1781129314781,"id":"1","progress":0.8544307675549081,"total":590,"current":545}
+{"_e":"metro:bundling:progress","_t":1781129314881,"id":"1","progress":0.8961777777777777,"total":600,"current":568}
+{"_e":"metro:bundling:progress","_t":1781129314982,"id":"1","progress":0.9422275037400927,"total":614,"current":596}
+{"_e":"metro:bundling:progress","_t":1781129315083,"id":"1","progress":0.9935379813784943,"total":618,"current":616}
+{"_e":"metro:bundling:progress","_t":1781129315770,"id":"1","progress":0.9967663723672772,"total":618,"current":617}
+{"_e":"metro:bundling:progress","_t":1781129315870,"id":"1","progress":0.9967663723672772,"total":681,"current":649}
+{"_e":"metro:bundling:progress","_t":1781129315970,"id":"1","progress":0.9967663723672772,"total":696,"current":673}
+{"_e":"metro:bundling:progress","_t":1781129316071,"id":"1","progress":0.9967663723672772,"total":708,"current":698}
+{"_e":"metro:bundling:progress","_t":1781129316173,"id":"1","progress":0.9971850823249355,"total":710,"current":709}
+{"_e":"metro:bundling:progress","_t":1781129317152,"id":"1","progress":0.999,"total":710,"current":710}
+{"_e":"metro:bundling:failed","_t":1781129317196,"id":"1","message":"Unable to resolve \"react-native-safe-area-context\" from \"App.tsx\"\n  11 |   SafeAreaProvider,\n  12 |   useSafeAreaInsets,\n> 13 | } from 'react-native-safe-area-context';\n     |         ^\n  14 |\n  15 | function App() {\n  16 |   const isDarkMode = useColorScheme() === 'dark';","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mApp.tsx\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"react-native-safe-area-context\"\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90mnode_modules/\u001b[1mexpo\u001b[22m/AppEntry.js\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"../../App\"\u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"./node_modules/\u001b[1mexpo\u001b[22m/AppEntry\"\u001b[39m\u001b[90m\u001b[39m\n","filename":null,"targetModuleName":"react-native-safe-area-context","originModulePath":"App.tsx"}
+{"_e":"root:init","_t":1781129358731,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781129358732,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781129358734,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781129358952,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781129359266,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781129359921,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1781129366072,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781129366072,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781129366074,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:failed","_t":1781129366082,"id":"1","message":"Unable to resolve \"../../App\" from \"node_modules/expo/AppEntry.js\"\n  1 | import registerRootComponent from 'expo/src/launch/registerRootComponent';\n  2 |\n> 3 | import App from '../../App';\n    |                  ^\n  4 |\n  5 | registerRootComponent(App);\n  6 |","importStack":"\u001b[1mImport stack:\u001b[22m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90mnode_modules/\u001b[1mexpo\u001b[22m/AppEntry.js\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"../../App\"\u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"./node_modules/\u001b[1mexpo\u001b[22m/AppEntry\"\u001b[39m\u001b[90m\u001b[39m\n","filename":null,"targetModuleName":"../../App","originModulePath":"node_modules/expo/AppEntry.js"}
+{"_e":"root:init","_t":1781129428135,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781129428135,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781129428137,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781129428307,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781129428574,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781129428960,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1781129436024,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781129436024,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781129436026,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781129436128,"id":"1","progress":0.2530959457399787,"total":324,"current":163}
+{"_e":"metro:bundling:progress","_t":1781129436227,"id":"1","progress":0.731342940629057,"total":511,"current":437}
+{"_e":"metro:bundling:progress","_t":1781129436338,"id":"1","progress":0.8348578937875234,"total":591,"current":540}
+{"_e":"metro:bundling:progress","_t":1781129436450,"id":"1","progress":0.9775917476691133,"total":710,"current":702}
+{"_e":"metro:bundling:progress","_t":1781129436551,"id":"1","progress":0.9972241512345679,"total":720,"current":719}
+{"_e":"metro:bundling:progress","_t":1781129436762,"id":"1","progress":0.999,"total":720,"current":720}
+{"_e":"metro:bundling:failed","_t":1781129436767,"id":"1","message":"Unable to resolve \"./src/constants\" from \"App.js\"\n  2 | import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';\n  3 | import { GameProvider, useGame } from './src/utils/GameContext';\n> 4 | import { COLORS } from './src/constants';\n    |                         ^\n  5 |\n  6 | import SplashScreen  from './src/screens/SplashScreen';\n  7 | import MenuScreen    from './src/screens/MenuScreen';","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mApp.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/constants\"\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90mnode_modules/\u001b[1mexpo\u001b[22m/AppEntry.js\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"../../App\"\u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"./node_modules/\u001b[1mexpo\u001b[22m/AppEntry\"\u001b[39m\u001b[90m\u001b[39m\n","filename":null,"targetModuleName":"./src/constants","originModulePath":"App.js"}
+{"_e":"root:init","_t":1781129680195,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781129680195,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781129680197,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781129680396,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781129680716,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781129681263,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1781129685286,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781129685286,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781129685288,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781129685389,"id":"1","progress":0.299612188365651,"total":380,"current":208}
+{"_e":"metro:bundling:progress","_t":1781129685489,"id":"1","progress":0.8429984422689683,"total":562,"current":516}
+{"_e":"metro:bundling:progress","_t":1781129685589,"id":"1","progress":0.9603999999999999,"total":700,"current":686}
+{"_e":"metro:bundling:failed","_t":1781129685622,"id":"1","message":"Unable to resolve \"./src/constants\" from \"App.js\"\n  2 | import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';\n  3 | import { GameProvider, useGame } from './src/utils/GameContext';\n> 4 | import { COLORS } from './src/constants';\n    |                         ^\n  5 |\n  6 | import SplashScreen  from './src/screens/SplashScreen';\n  7 | import MenuScreen    from './src/screens/MenuScreen';","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39mApp.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/constants\"\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90mnode_modules/\u001b[1mexpo\u001b[22m/AppEntry.js\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"../../App\"\u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"./node_modules/\u001b[1mexpo\u001b[22m/AppEntry\"\u001b[39m\u001b[90m\u001b[39m\n","filename":null,"targetModuleName":"./src/constants","originModulePath":"App.js"}
+{"_e":"root:init","_t":1781130217257,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781130217258,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781130217260,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781130217457,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781130217740,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781130218167,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"root:init","_t":1781130335725,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781130335726,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781130335727,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781130335921,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781130336203,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781130336583,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1781130346638,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781130346638,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781130346640,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781130346740,"id":"1","progress":0.17774891039104515,"total":287,"current":121}
+{"_e":"metro:bundling:progress","_t":1781130346840,"id":"1","progress":0.7055999999999999,"total":500,"current":420}
+{"_e":"metro:bundling:progress","_t":1781130346940,"id":"1","progress":0.9165708142972319,"total":610,"current":584}
+{"_e":"metro:bundling:progress","_t":1781130347040,"id":"1","progress":0.9972241512345679,"total":720,"current":719}
+{"_e":"metro:bundling:progress","_t":1781130347226,"id":"1","progress":0.999,"total":720,"current":720}
+{"_e":"metro:bundling:progress","_t":1781130347327,"id":"1","progress":0.999,"total":726,"current":721}
+{"_e":"metro:bundling:progress","_t":1781130347847,"id":"1","progress":0.999,"total":726,"current":722}
+{"_e":"metro:bundling:progress","_t":1781130347947,"id":"1","progress":0.999,"total":726,"current":723}
+{"_e":"metro:bundling:progress","_t":1781130348067,"id":"1","progress":0.999,"total":728,"current":726}
+{"_e":"metro:bundling:failed","_t":1781130348134,"id":"1","message":"Unable to resolve \"../constants\" from \"src/utils/GameContext.js\"\n  33 |             const words = getWordsForDifficulty(action.difficulty || state.difficulty, MAX_ROUND_WORDS)\n  34 |                 .map(w => ({ ...w, scrambled: scrambleWord(w.word) }));\n> 35 |             const config = require('../constants').DIFFICULTY_CONFIG[state.difficulty];\n     |                                     ^\n  36 |             return {\n  37 |                 ...state,\n  38 |                 screen:    'GAME',","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc/utils/GameContext.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../constants\"\u001b[39m\n\n\u001b[90m \u001b[39mApp.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/utils/GameContext\"\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90mnode_modules/\u001b[1mexpo\u001b[22m/AppEntry.js\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"../../App\"\u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"./node_modules/\u001b[1mexpo\u001b[22m/AppEntry\"\u001b[39m\u001b[90m\u001b[39m\n","filename":null,"targetModuleName":"../constants","originModulePath":"src/utils/GameContext.js"}
+{"_e":"root:init","_t":1781130417452,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781130417453,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781130417455,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781130417648,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781130417919,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781130418325,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1781130421869,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781130421869,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781130421879,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781130421979,"id":"1","progress":0.2307024614049228,"total":254,"current":122}
+{"_e":"metro:bundling:progress","_t":1781130422079,"id":"1","progress":0.610251713567608,"total":489,"current":382}
+{"_e":"metro:bundling:progress","_t":1781130422179,"id":"1","progress":0.9168375411166646,"total":612,"current":586}
+{"_e":"metro:bundling:progress","_t":1781130422280,"id":"1","progress":0.9972546341021615,"total":728,"current":727}
+{"_e":"metro:bundling:progress","_t":1781130422412,"id":"1","progress":0.999,"total":728,"current":728}
+{"_e":"metro:bundling:failed","_t":1781130422446,"id":"1","message":"Unable to resolve \"../constants\" from \"src/screens/ResultScreen.js\"\n  3 |     View, Text, TouchableOpacity, StyleSheet, Animated, Dimensions,\n  4 | } from 'react-native';\n> 5 | import { COLORS, MAX_ROUND_WORDS, POINTS_PER_WORD } from '../constants';\n    |                                                           ^\n  6 | import { useGame } from '../utils/GameContext';\n  7 |\n  8 | const { width } = Dimensions.get('window');","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc/screens/ResultScreen.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../constants\"\u001b[39m\n\n\u001b[90m \u001b[39mApp.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/screens/ResultScreen\"\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90mnode_modules/\u001b[1mexpo\u001b[22m/AppEntry.js\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"../../App\"\u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"./node_modules/\u001b[1mexpo\u001b[22m/AppEntry\"\u001b[39m\u001b[90m\u001b[39m\n","filename":null,"targetModuleName":"../constants","originModulePath":"src/screens/ResultScreen.js"}
+{"_e":"root:init","_t":1781130466615,"format":"v0-jsonl","version":"56.1.14"}
+{"_e":"env:mode","_t":1781130466615,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781130466617,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781130466788,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781130467052,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781130467429,"atlas":false,"workers":7,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1781130470523,"id":"1","platform":"ios","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781130470524,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781130470526,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781130470626,"id":"1","progress":0.2364628988850442,"total":255,"current":124}
+{"_e":"metro:bundling:progress","_t":1781130470726,"id":"1","progress":0.32111111111111107,"total":420,"current":238}
+{"_e":"metro:bundling:progress","_t":1781130470826,"id":"1","progress":0.7152137756347656,"total":512,"current":433}
+{"_e":"metro:bundling:progress","_t":1781130470926,"id":"1","progress":0.9403122130394859,"total":627,"current":608}
+{"_e":"metro:bundling:progress","_t":1781130471026,"id":"1","progress":0.9972583974514575,"total":729,"current":728}
+{"_e":"metro:bundling:progress","_t":1781130471228,"id":"1","progress":0.999,"total":729,"current":729}
+{"_e":"metro:bundling:done","_t":1781130471988,"id":"1","total":729,"ms":1464.455292}
+{"_e":"metro:client_log","_t":1781130473313,"level":"warn","data":["SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/AppAndFlow/react-native-safe-area-context"]}
+{"_e":"metro:client_log","_t":1781130501257,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130541759,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130541962,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542005,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542030,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542030,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542060,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542060,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542090,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542091,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542120,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542151,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542151,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542179,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542179,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542208,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542209,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542238,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542269,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542297,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542298,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542327,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542327,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542356,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542356,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542386,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542417,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542445,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542446,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542474,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542504,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542505,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542535,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542563,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542592,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542592,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542622,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}
+{"_e":"metro:client_log","_t":1781130542652,"level":"error","data":["[Error: Attempting to run JS driven animation on animated node that has been moved to \"native\" earlier by starting an animation with `useNativeDriver: true`]"]}

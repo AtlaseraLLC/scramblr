@@ -1,97 +1,89 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 💥 WordBlast
 
-# Getting Started
+> A mobile word unscramble game built with React Native — drag letter tiles into the correct order to solve each puzzle. Features a retro neon arcade aesthetic, difficulty levels, lives system, and smooth drag-and-drop interactions.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 📱 Screens
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+| Screen | Description |
+|---|---|
+| **Splash** | Animated logo with 3s loading bar |
+| **Menu** | Play, Settings, About, Quit |
+| **Game** | Drag-and-drop letter tiles into answer slots |
+| **Result** | Score, rank (S→D), play again or return to menu |
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🎮 Gameplay
 
-```sh
-# Using npm
+- Scrambled letter tiles appear at the top
+- Drag each tile into the correct answer slot below
+- Tap a filled slot to return its tile to the source row
+- Hit **CHECK** when all slots are filled
+- Wrong answer? Lose a life and try again
+- Use **SKIP** to jump to the next word (costs a life)
+- Earn bonus points for speed
+
+## ⚙️ Difficulty Modes
+
+| Mode | Max Letters | Lives | Time Bonus |
+|---|---|---|---|
+| Easy   | 4 | 3 | 10s window |
+| Medium | 6 | 3 | 20s window |
+| Hard   | 9 | 2 | 40s window |
+
+## 🏆 Scoring
+
+- **100 pts** per correct word
+- **+5 pts** per second remaining under the time window
+- Final rank: S / A / B / C / D
+
+## 🗂 Project Structure
+
+```
+WordBlast/
+├── App.js                        # Root navigator
+├── src/
+│   ├── constants.js              # Theme, colors, config
+│   ├── data/
+│   │   └── words.js              # Word bank (60 words, 3 difficulties)
+│   ├── utils/
+│   │   └── GameContext.js        # Global state (Context + useReducer)
+│   ├── screens/
+│   │   ├── SplashScreen.js
+│   │   ├── MenuScreen.js         # Includes Settings & About modals
+│   │   ├── GameScreen.js         # Core drag-and-drop game loop
+│   │   └── ResultScreen.js
+│   └── components/
+│       ├── LetterTile.js         # Draggable tile (PanResponder)
+│       └── AnswerSlot.js         # Drop target slot
+└── package.json
+```
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start Expo
 npm start
 
-# OR using Yarn
-yarn start
+# Run on device
+npm run android   # Android
+npm run ios       # iOS
 ```
 
-## Step 2: Build and run your app
+> Requires [Expo CLI](https://docs.expo.dev/get-started/installation/) and the Expo Go app on your device.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🎨 Design
 
-### Android
+Retro neon arcade aesthetic — dark background, vivid neon tile colors, chunky monospace typography, scanline effects, and smooth spring animations throughout.
 
-```sh
-# Using npm
-npm run android
+## 📦 Tech Stack
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- **React Native** (0.74)
+- **Expo** (~51)
+- `PanResponder` for drag-and-drop
+- `Animated` API for all transitions
+- `Context + useReducer` for state management
+- Zero third-party UI libraries

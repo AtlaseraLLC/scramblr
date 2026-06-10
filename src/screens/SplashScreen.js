@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import {
     View, Text, Animated, StyleSheet, Dimensions, StatusBar,
 } from 'react-native';
-import { COLORS } from '../constants';
+import { COLORS } from '../utils/Constants';
 import { useGame } from '../utils/GameContext';
 
 const { width } = Dimensions.get('window');

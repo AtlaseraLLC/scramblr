@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { DIFFICULTY, MAX_ROUND_WORDS } from '../constants';
+import { DIFFICULTY, MAX_ROUND_WORDS } from './Constants';
 import { getWordsForDifficulty, scrambleWord } from '../data/Words';
 
 // ─── STATE SHAPE ─────────────────────────────────────────────────────────────
@@ -32,7 +32,7 @@ function reducer(state, action) {
         case 'START_GAME': {
             const words = getWordsForDifficulty(action.difficulty || state.difficulty, MAX_ROUND_WORDS)
                 .map(w => ({ ...w, scrambled: scrambleWord(w.word) }));
-            const config = require('../constants').DIFFICULTY_CONFIG[state.difficulty];
+            const config = require('../utils/Constants').DIFFICULTY_CONFIG[state.difficulty];
             return {
                 ...state,
                 screen:    'GAME',

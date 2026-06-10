@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
-import { COLORS, TILE_SIZE, TILE_COLORS } from '../constants';
+import { COLORS, TILE_SIZE, TILE_COLORS } from '../utils/Constants';
 
 /**
  * AnswerSlot

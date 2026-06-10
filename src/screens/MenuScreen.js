@@ -3,7 +3,7 @@ import {
     View, Text, TouchableOpacity, StyleSheet,
     Animated, Dimensions, Modal, ScrollView, BackHandler,
 } from 'react-native';
-import { COLORS, DIFFICULTY, DIFFICULTY_CONFIG } from '../constants';
+import { COLORS, DIFFICULTY, DIFFICULTY_CONFIG } from '../utils/Constants';
 import { useGame } from '../utils/GameContext';
 
 const { width } = Dimensions.get('window');
