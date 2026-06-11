@@ -75,11 +75,8 @@ export default function SplashScreen() {
             {/* Logo block */}
             <Animated.View style={[styles.logoWrap, { opacity: logoOpacity, transform: [{ scale: logoScale }] }]}>
                 <Animated.Text style={[styles.logoText, { opacity: glowOpacity }]}>
-                    WORD
+                    SCRAMBLR
                 </Animated.Text>
-                <View style={styles.logoBadge}>
-                    <Text style={styles.logoBadgeText}>BLAST</Text>
-                </View>
             </Animated.View>
 
             <Animated.Text style={[styles.subtitle, { opacity: subtitleOp }]}>
