@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import {
-    View, Text, Animated, StyleSheet, Dimensions, StatusBar,
+    View, Animated, StyleSheet, Dimensions, StatusBar,
 } from 'react-native';
 import { COLORS } from '../utils/Constants';
 import { useGame } from '../utils/GameContext';
@@ -8,6 +8,11 @@ import { useGame } from '../utils/GameContext';
 const { width } = Dimensions.get('window');
 const SPLASH_DURATION = 3000;
 
+/**
+ *
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 export default function SplashScreen() {
     const { dispatch } = useGame();
     const barWidth   = useRef(new Animated.Value(0)).current;

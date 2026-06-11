@@ -87,6 +87,10 @@ export function GameProvider({ children }) {
     );
 }
 
+/**
+ *
+ * @returns {null}
+ */
 export function useGame() {
     return useContext(GameContext);
 }

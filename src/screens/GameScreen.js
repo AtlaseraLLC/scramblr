@@ -12,6 +12,11 @@ import AnswerSlot from '../components/AnswerSlot';
 
 const { width } = Dimensions.get('window');
 
+/**
+ *
+ * @returns {React.JSX.Element|null}
+ * @constructor
+ */
 export default function GameScreen() {
     const { state, dispatch } = useGame();
     const currentWordObj = state.words[state.wordIndex];
