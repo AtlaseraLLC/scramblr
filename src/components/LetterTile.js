@@ -1,116 +1,66 @@
 import React, { useRef, useEffect } from 'react';
-import {
-    Animated, PanResponder, Text, StyleSheet, View,
-} from 'react-native';
+import { Animated, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { COLORS, TILE_SIZE, TILE_COLORS } from '../utils/Constants';
 
 /**
- * LetterTile
- * Props:
- *   letter       – string character
- *   colorIndex   – int, picks from TILE_COLORS
- *   tileKey      – unique identifier
- *   onDrop       – callback(tileKey, pageX, pageY) called when finger lifts
- *   isPlaced     – bool: tile is in an answer slot (hidden from source row)
- *   initialX     – layout x for home position
- *   initialY     – layout y for home position
+ * LetterTile — tap to place into next empty answer slot.
+ * When isPlaced=true, renders a ghost/empty placeholder so layout stays stable.
  */
-export default function LetterTile({
-                                       letter,
-                                       colorIndex,
-                                       tileKey,
-                                       onDrop,
-                                       isPlaced,
-                                       style,
-                                   }) {
-    const pan        = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
-    const scale      = useRef(new Animated.Value(1)).current;
-    const zIndex     = useRef(new Animated.Value(1)).current;
-    const popAnim    = useRef(new Animated.Value(0)).current;
-    const tileColor  = TILE_COLORS[colorIndex % TILE_COLORS.length];
+export default function LetterTile({ letter, colorIndex, tileKey, onTap, isPlaced }) {
+    const scaleAnim = useRef(new Animated.Value(0)).current;
+    const tileColor = TILE_COLORS[colorIndex % TILE_COLORS.length];
 
     // Pop-in on mount
     useEffect(() => {
-        Animated.spring(popAnim, {
+        Animated.spring(scaleAnim, {
             toValue: 1, friction: 5, tension: 120, useNativeDriver: true,
         }).start();
-    }, [popAnim]);
+    }, []);
 
-    // Reset to home when isPlaced goes false (tile returned)
+    // Fade out when placed
     useEffect(() => {
-        if (!isPlaced) {
-            Animated.spring(pan, {
-                toValue: { x: 0, y: 0 }, friction: 6, useNativeDriver: true,
-            }).start();
-        }
-    }, [isPlaced, pan]);
+        Animated.timing(scaleAnim, {
+            toValue: isPlaced ? 0.7 : 1,
+            duration: 150,
+            useNativeDriver: true,
+        }).start();
+    }, [isPlaced]);
 
-    const panResponder = useRef(
-        PanResponder.create({
-            onStartShouldSetPanResponder: () => true,
-            onMoveShouldSetPanResponder:  () => true,
-
-            onPanResponderGrant: () => {
-                // Lift tile on grab
-                Animated.parallel([
-                    Animated.spring(scale,  { toValue: 1.15, useNativeDriver: true }),
-                    Animated.timing(zIndex, { toValue: 99,   duration: 0, useNativeDriver: false }),
-                ]).start();
-                pan.setOffset({ x: pan.x._value, y: pan.y._value });
-                pan.setValue({ x: 0, y: 0 });
-            },
-
-            onPanResponderMove: Animated.event(
-                [null, { dx: pan.x, dy: pan.y }],
-                { useNativeDriver: false }
-            ),
-
-            onPanResponderRelease: (evt) => {
-                pan.flattenOffset();
-                // Drop back to rest scale
-                Animated.spring(scale, { toValue: 1, friction: 5, useNativeDriver: true }).start();
-                Animated.timing(zIndex, { toValue: 1, duration: 0, useNativeDriver: false }).start();
-
-                // Notify parent of drop location
-                if (onDrop) {
-                    onDrop(tileKey, evt.nativeEvent.pageX, evt.nativeEvent.pageY);
-                }
-            },
-
-            onPanResponderTerminate: () => {
-                pan.flattenOffset();
-                Animated.spring(pan,   { toValue: { x: 0, y: 0 }, friction: 6, useNativeDriver: true }).start();
-                Animated.spring(scale, { toValue: 1, friction: 5, useNativeDriver: true }).start();
-            },
-        })
-    ).current;
-
-    if (isPlaced) {
-        return <View style={{ width: TILE_SIZE, height: TILE_SIZE }} />;
-    }
+    const handlePress = () => {
+        if (isPlaced) return;
+        // Quick press pop
+        Animated.sequence([
+            Animated.spring(scaleAnim, { toValue: 0.85, useNativeDriver: true }),
+            Animated.spring(scaleAnim, { toValue: 1,    useNativeDriver: true }),
+        ]).start();
+        onTap(tileKey);
+    };
 
     return (
-        <Animated.View
-            {...panResponder.panHandlers}
-            style={[
-                styles.tile,
-                {
-                    backgroundColor: tileColor,
-                    zIndex,
-                    transform: [
-                        { scale: Animated.multiply(popAnim, scale) },
-                        { translateX: pan.x },
-                        { translateY: pan.y },
-                    ],
-                    shadowColor: tileColor,
-                },
-                style,
-            ]}
+        <TouchableOpacity
+            onPress={handlePress}
+            activeOpacity={isPlaced ? 1 : 0.8}
+            disabled={isPlaced}
         >
-            <Text style={styles.letter}>{letter}</Text>
-            {/* Gloss overlay */}
-            <View style={styles.gloss} pointerEvents="none" />
-        </Animated.View>
+            <Animated.View
+                style={[
+                    styles.tile,
+                    isPlaced && styles.tilePlaced,
+                    {
+                        backgroundColor: isPlaced ? COLORS.border : tileColor,
+                        transform: [{ scale: scaleAnim }],
+                        shadowColor: isPlaced ? 'transparent' : tileColor,
+                    },
+                ]}
+            >
+                {!isPlaced && (
+                    <>
+                        <Text style={styles.letter}>{letter}</Text>
+                        <View style={styles.gloss} pointerEvents="none" />
+                    </>
+                )}
+            </Animated.View>
+        </TouchableOpacity>
     );
 }
 
@@ -120,12 +70,16 @@ const styles = StyleSheet.create({
         height: TILE_SIZE,
         alignItems: 'center',
         justifyContent: 'center',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.6,
-        shadowRadius: 6,
-        elevation: 8,
         borderBottomWidth: 4,
-        borderBottomColor: 'rgba(0,0,0,0.35)',
+        borderBottomColor: 'rgba(0,0,0,0.3)',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.5,
+        shadowRadius: 6,
+        elevation: 6,
+    },
+    tilePlaced: {
+        borderBottomWidth: 0,
+        opacity: 0.3,
     },
     letter: {
         fontSize: 26,

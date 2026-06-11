@@ -1,140 +1,88 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
-    View, Text, TouchableOpacity, StyleSheet,
-    Animated, Dimensions, ScrollView,
+    View, Text, TouchableOpacity, StyleSheet, Animated, Dimensions,
 } from 'react-native';
-import { COLORS, TILE_SIZE, TILE_GAP, DIFFICULTY_CONFIG, POINTS_PER_WORD, POINTS_TIME_BONUS, MAX_ROUND_WORDS } from '../utils/Constants';
-import { scrambleWord } from '../data/words';
+import {
+    COLORS, TILE_SIZE, TILE_GAP,
+    DIFFICULTY_CONFIG, POINTS_PER_WORD, POINTS_TIME_BONUS, MAX_ROUND_WORDS,
+} from '../utils/Constants';
 import { useGame } from '../utils/GameContext';
 import LetterTile from '../components/LetterTile';
 import AnswerSlot from '../components/AnswerSlot';
 
 const { width } = Dimensions.get('window');
-const SLOT_HIT_PADDING = 10;
 
 export default function GameScreen() {
     const { state, dispatch } = useGame();
     const currentWordObj = state.words[state.wordIndex];
     const difficulty     = DIFFICULTY_CONFIG[state.difficulty];
 
-    // ── Word state ──────────────────────────────────────────────────────────────
-    const [tiles,       setTiles]       = useState([]);   // { key, letter, colorIndex, isPlaced }
-    const [slots,       setSlots]       = useState([]);   // { letter|null, tileKey|null, colorIndex|null }
-    const [feedback,    setFeedback]    = useState(null); // 'correct' | 'wrong' | null
-    const [showHint,    setShowHint]    = useState(false);
-    const [elapsedSec,  setElapsedSec]  = useState(0);
+    // tiles: { key, letter, colorIndex, isPlaced }
+    const [tiles,      setTiles]      = useState([]);
+    // slots: { letter|null, tileKey|null, colorIndex|null }
+    const [slots,      setSlots]      = useState([]);
+    const [feedback,   setFeedback]   = useState(null); // 'correct' | 'wrong' | null
+    const [showHint,   setShowHint]   = useState(false);
+    const [elapsedSec, setElapsedSec] = useState(0);
 
-    // ── Refs ────────────────────────────────────────────────────────────────────
-    const slotRefs   = useRef({});   // index → measured { x, y, width, height }
-    const slotViews  = useRef({});   // index → View ref
-    const timerRef   = useRef(null);
-    const wordStartT = useRef(Date.now());
+    const timerRef     = useRef(null);
+    const wordStartT   = useRef(Date.now());
     const feedbackAnim = useRef(new Animated.Value(0)).current;
-    const progressAnim = useRef(new Animated.Value(0)).current;
+    const progressAnim = useRef(new Animated.Value(
+        state.wordIndex / MAX_ROUND_WORDS
+    )).current;
 
     // ── Init word ────────────────────────────────────────────────────────────────
     useEffect(() => {
         if (!currentWordObj) return;
-        const word      = currentWordObj.word;
         const scrambled = currentWordObj.scrambled;
 
-        const newTiles = scrambled.split('').map((letter, i) => ({
-            key:        `tile-${i}-${letter}-${Date.now()}`,
-            letter,
-            colorIndex: i,
-            isPlaced:   false,
-        }));
-        const newSlots = Array.from({ length: word.length }, () => ({
-            letter: null, tileKey: null, colorIndex: null,
-        }));
-
-        setTiles(newTiles);
-        setSlots(newSlots);
+        setTiles(
+            scrambled.split('').map((letter, i) => ({
+                key:        `tile-${i}-${letter}-${Date.now()}`,
+                letter,
+                colorIndex: i,
+                isPlaced:   false,
+            }))
+        );
+        setSlots(
+            Array.from({ length: currentWordObj.word.length }, () => ({
+                letter: null, tileKey: null, colorIndex: null,
+            }))
+        );
         setFeedback(null);
         setShowHint(false);
         setElapsedSec(0);
         wordStartT.current = Date.now();
-        slotRefs.current   = {};
 
-        // Animate progress bar
         Animated.timing(progressAnim, {
             toValue: (state.wordIndex + 1) / MAX_ROUND_WORDS,
             duration: 400,
             useNativeDriver: false,
         }).start();
 
-        // Timer
         clearInterval(timerRef.current);
-        timerRef.current = setInterval(() => {
-            setElapsedSec(s => s + 1);
-        }, 1000);
-
+        timerRef.current = setInterval(() => setElapsedSec(s => s + 1), 1000);
         return () => clearInterval(timerRef.current);
-    }, [state.wordIndex, currentWordObj, progressAnim]);
+    }, [state.wordIndex, currentWordObj]);
 
-    // ── Measure slot positions ───────────────────────────────────────────────────
-    const onSlotRef = useCallback((index, ref) => {
-        slotViews.current[index] = ref;
-    }, []);
-
-    const measureSlots = useCallback(() => {
-        Object.entries(slotViews.current).forEach(([index, ref]) => {
-            if (ref && ref.measure) {
-                ref.measure((fx, fy, w, h, px, py) => {
-                    slotRefs.current[index] = { x: px, y: py, width: w, height: h };
-                });
-            }
-        });
-    }, []);
-
-    // ── Drop handler ─────────────────────────────────────────────────────────────
-    const handleDrop = useCallback((tileKey, pageX, pageY) => {
-        // Find which slot the finger landed on
-        let targetSlotIdx = null;
-        Object.entries(slotRefs.current).forEach(([idx, { x, y, width: w, height: h }]) => {
-            if (
-                pageX >= x - SLOT_HIT_PADDING &&
-                pageX <= x + w + SLOT_HIT_PADDING &&
-                pageY >= y - SLOT_HIT_PADDING &&
-                pageY <= y + h + SLOT_HIT_PADDING
-            ) {
-                targetSlotIdx = parseInt(idx, 10);
-            }
-        });
-
-        if (targetSlotIdx === null) return; // dropped on nothing
-
+    // ── Tap a source tile → place in next empty slot ─────────────────────────────
+    const handleTileTap = useCallback((tileKey) => {
         const tile = tiles.find(t => t.key === tileKey);
-        if (!tile) return;
+        if (!tile || tile.isPlaced) return;
+
+        const nextEmptyIdx = slots.findIndex(s => s.letter === null);
+        if (nextEmptyIdx === -1) return; // all slots full
 
         setSlots(prev => {
             const next = [...prev];
-
-            // If slot already has a tile, swap it back
-            const existingKey = next[targetSlotIdx].tileKey;
-
-            // Un-place any tile already in that slot
-            if (existingKey) {
-                setTiles(pt => pt.map(t =>
-                    t.key === existingKey ? { ...t, isPlaced: false } : t
-                ));
-            }
-
-            // Remove tile from any slot it was previously in
-            const prevSlotIdx = next.findIndex(s => s.tileKey === tileKey);
-            if (prevSlotIdx !== -1) next[prevSlotIdx] = { letter: null, tileKey: null, colorIndex: null };
-
-            // Place tile in target slot
-            next[targetSlotIdx] = { letter: tile.letter, tileKey: tile.key, colorIndex: tile.colorIndex };
+            next[nextEmptyIdx] = { letter: tile.letter, tileKey: tile.key, colorIndex: tile.colorIndex };
             return next;
         });
+        setTiles(prev => prev.map(t => t.key === tileKey ? { ...t, isPlaced: true } : t));
+    }, [tiles, slots]);
 
-        setTiles(prev => prev.map(t =>
-            t.key === tileKey ? { ...t, isPlaced: true } : t
-        ));
-    }, [tiles]);
-
-    // Tap a filled slot → return tile to source row
+    // ── Tap a filled slot → return tile to source row ────────────────────────────
     const handleSlotTap = useCallback((slotIdx) => {
         const slot = slots[slotIdx];
         if (!slot.tileKey) return;
@@ -157,35 +105,27 @@ export default function GameScreen() {
         const attempt = slots.map(s => s.letter).join('');
         const correct  = attempt === currentWordObj.word;
 
-        if (correct) {
-            clearInterval(timerRef.current);
-            const secs   = Math.floor((Date.now() - wordStartT.current) / 1000);
-            const bonus  = Math.max(0, difficulty.timeBonus - secs) * POINTS_TIME_BONUS;
-            const points = POINTS_PER_WORD + bonus;
+        setFeedback(correct ? 'correct' : 'wrong');
 
-            setFeedback('correct');
-            Animated.sequence([
-                Animated.timing(feedbackAnim, { toValue: 1, duration: 200, useNativeDriver: true }),
-                Animated.delay(600),
-                Animated.timing(feedbackAnim, { toValue: 0, duration: 200, useNativeDriver: true }),
-            ]).start(() => {
-                dispatch({ type: 'WORD_CORRECT', points });
-            });
-        } else {
-            setFeedback('wrong');
-            Animated.sequence([
-                Animated.timing(feedbackAnim, { toValue: 1, duration: 150, useNativeDriver: true }),
-                Animated.delay(400),
-                Animated.timing(feedbackAnim, { toValue: 0, duration: 200, useNativeDriver: true }),
-            ]).start(() => {
+        Animated.sequence([
+            Animated.timing(feedbackAnim, { toValue: 1, duration: 180, useNativeDriver: true }),
+            Animated.delay(correct ? 600 : 400),
+            Animated.timing(feedbackAnim, { toValue: 0, duration: 180, useNativeDriver: true }),
+        ]).start(() => {
+            if (correct) {
+                clearInterval(timerRef.current);
+                const secs   = Math.floor((Date.now() - wordStartT.current) / 1000);
+                const bonus  = Math.max(0, difficulty.timeBonus - secs) * POINTS_TIME_BONUS;
+                dispatch({ type: 'WORD_CORRECT', points: POINTS_PER_WORD + bonus });
+            } else {
                 setFeedback(null);
                 dispatch({ type: 'WORD_WRONG' });
-                // Reset slots
+                // Clear slots, return all tiles
                 setSlots(prev => prev.map(() => ({ letter: null, tileKey: null, colorIndex: null })));
                 setTiles(prev => prev.map(t => ({ ...t, isPlaced: false })));
-            });
-        }
-    }, [slots, currentWordObj.word, difficulty.timeBonus, feedbackAnim, dispatch]);
+            }
+        });
+    }, [slots, currentWordObj, difficulty]);
 
     // ── Skip ──────────────────────────────────────────────────────────────────────
     const handleSkip = () => {
@@ -196,18 +136,18 @@ export default function GameScreen() {
     if (!currentWordObj) return null;
 
     const allFilled    = slots.every(s => s.letter !== null);
-    const correctSlots = slots.map((s, i) =>
-        s.letter === currentWordObj.word[i]
-    );
+    const correctSlots = slots.map((s, i) => s.letter === currentWordObj.word[i]);
 
     return (
-        <View style={styles.container} onLayout={measureSlots}>
+        <View style={styles.container}>
 
             {/* ── Header ── */}
             <View style={styles.header}>
                 <View>
                     <Text style={styles.levelLabel}>WORD {state.wordIndex + 1}/{MAX_ROUND_WORDS}</Text>
-                    <Text style={styles.scoreLabel}>SCORE: <Text style={styles.scoreNum}>{state.score}</Text></Text>
+                    <Text style={styles.scoreLabel}>
+                        SCORE: <Text style={styles.scoreNum}>{state.score}</Text>
+                    </Text>
                 </View>
                 <View style={styles.livesRow}>
                     {Array.from({ length: 3 }).map((_, i) => (
@@ -216,14 +156,14 @@ export default function GameScreen() {
                 </View>
             </View>
 
-            {/* ── Progress bar ── */}
+            {/* ── Progress ── */}
             <View style={styles.progressTrack}>
                 <Animated.View style={[styles.progressFill, {
                     width: progressAnim.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }),
                 }]} />
             </View>
 
-            {/* ── Category + Timer ── */}
+            {/* ── Meta ── */}
             <View style={styles.metaRow}>
                 <Text style={styles.categoryTag}>★ {currentWordObj.category}</Text>
                 <Text style={styles.timerText}>⏱ {elapsedSec}s</Text>
@@ -231,18 +171,39 @@ export default function GameScreen() {
 
             {/* ── Hint ── */}
             <View style={styles.hintWrap}>
-                {showHint ? (
-                    <Text style={styles.hintText}>💡 {currentWordObj.hint}</Text>
-                ) : (
-                    <TouchableOpacity onPress={() => setShowHint(true)} style={styles.hintBtn}>
-                        <Text style={styles.hintBtnText}>SHOW HINT</Text>
-                    </TouchableOpacity>
-                )}
+                {showHint
+                    ? <Text style={styles.hintText}>💡 {currentWordObj.hint}</Text>
+                    : (
+                        <TouchableOpacity onPress={() => setShowHint(true)} style={styles.hintBtn}>
+                            <Text style={styles.hintBtnText}>SHOW HINT</Text>
+                        </TouchableOpacity>
+                    )
+                }
             </View>
 
-            {/* ── Scrambled tiles (source row) ── */}
-            <View style={styles.tilesArea} onLayout={measureSlots}>
-                <Text style={styles.areaLabel}>SCRAMBLED</Text>
+            {/* ── Answer slots (tap to return) ── */}
+            <View style={styles.slotsArea}>
+                <Text style={styles.areaLabel}>YOUR ANSWER</Text>
+                <View style={styles.tilesRow}>
+                    {slots.map((slot, i) => (
+                        <AnswerSlot
+                            key={i}
+                            index={i}
+                            letter={slot.letter}
+                            colorIndex={slot.colorIndex}
+                            isCorrect={slot.letter !== null && correctSlots[i]}
+                            onPress={() => handleSlotTap(i)}
+                        />
+                    ))}
+                </View>
+            </View>
+
+            {/* ── Divider ── */}
+            <View style={styles.divider} />
+
+            {/* ── Scrambled tiles (tap to place) ── */}
+            <View style={styles.tilesArea}>
+                <Text style={styles.areaLabel}>TAP TO PLACE</Text>
                 <View style={styles.tilesRow}>
                     {tiles.map(tile => (
                         <LetterTile
@@ -251,30 +212,8 @@ export default function GameScreen() {
                             letter={tile.letter}
                             colorIndex={tile.colorIndex}
                             isPlaced={tile.isPlaced}
-                            onDrop={handleDrop}
+                            onTap={handleTileTap}
                         />
-                    ))}
-                </View>
-            </View>
-
-            {/* ── Answer slots ── */}
-            <View style={styles.slotsArea} onLayout={measureSlots}>
-                <Text style={styles.areaLabel}>YOUR ANSWER</Text>
-                <View style={styles.slotsRow}>
-                    {slots.map((slot, i) => (
-                        <TouchableOpacity
-                            key={i}
-                            activeOpacity={0.9}
-                            onPress={() => handleSlotTap(i)}
-                        >
-                            <AnswerSlot
-                                index={i}
-                                letter={slot.letter}
-                                colorIndex={slot.colorIndex}
-                                isCorrect={slot.letter !== null && correctSlots[i]}
-                                onRef={onSlotRef}
-                            />
-                        </TouchableOpacity>
                     ))}
                 </View>
             </View>
@@ -283,7 +222,10 @@ export default function GameScreen() {
             {feedback && (
                 <Animated.View style={[
                     styles.feedbackBanner,
-                    { opacity: feedbackAnim, backgroundColor: feedback === 'correct' ? COLORS.neonGreen : COLORS.neonPink },
+                    {
+                        opacity: feedbackAnim,
+                        backgroundColor: feedback === 'correct' ? COLORS.neonGreen : COLORS.neonPink,
+                    },
                 ]}>
                     <Text style={styles.feedbackText}>
                         {feedback === 'correct' ? '✓ CORRECT!' : '✗ WRONG!'}
@@ -308,7 +250,6 @@ export default function GameScreen() {
                 </TouchableOpacity>
             </View>
 
-            {/* Difficulty badge */}
             <Text style={[styles.diffBadge, { color: difficulty.color }]}>
                 {state.difficulty}
             </Text>
@@ -388,7 +329,7 @@ const styles = StyleSheet.create({
         minHeight: 36,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 16,
+        marginBottom: 24,
     },
     hintBtn: {
         borderWidth: 1,
@@ -417,6 +358,15 @@ const styles = StyleSheet.create({
         marginBottom: 14,
         textAlign: 'center',
     },
+    slotsArea: {
+        marginBottom: 16,
+    },
+    divider: {
+        height: 1,
+        backgroundColor: COLORS.border,
+        marginBottom: 24,
+        opacity: 0.4,
+    },
     tilesArea: {
         marginBottom: 32,
     },
@@ -426,15 +376,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         gap: TILE_GAP,
         minHeight: TILE_SIZE,
-    },
-    slotsArea: {
-        marginBottom: 32,
-    },
-    slotsRow: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: TILE_GAP,
     },
     feedbackBanner: {
         position: 'absolute',

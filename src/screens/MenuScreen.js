@@ -22,7 +22,7 @@ function AboutModal({ visible, onClose }) {
                     </View>
                     <ScrollView style={{ maxHeight: 320 }}>
                         <Text style={modal.body}>
-                            WORDBLAST is a fast-paced letter unscramble game.{'\n\n'}
+                            SCRAMBLR is a fast-paced letter unscramble game.{'\n\n'}
                             Drag each letter tile into the correct slot to form the hidden word before you run out of lives.{'\n\n'}
                             {'▸'} 3 difficulty modes{'\n'}
                             {'▸'} 5 words per round{'\n'}
