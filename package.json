@@ -1,5 +1,5 @@
 {
-  "name": "wordblast",
+  "name": "scramblr",
   "version": "1.0.0",
   "description": "A mobile word unscramble game built with React Native — drag letter tiles into the correct order to solve each puzzle. Features a retro neon arcade aesthetic, difficulty levels, lives system, and smooth drag-and-drop interactions.",
   "main": "node_modules/expo/AppEntry.js",
