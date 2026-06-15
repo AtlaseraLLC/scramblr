@@ -1,5 +1,6 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { GameProvider, useGame } from './src/utils/GameContext';
 import { COLORS } from './src/utils/Constants';
 
