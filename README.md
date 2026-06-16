@@ -1,4 +1,4 @@
-# 💥 WordBlast
+# 💥 Scramblr
 
 > A mobile word unscramble game built with React Native — drag letter tiles into the correct order to solve each puzzle. Features a retro neon arcade aesthetic, difficulty levels, lives system, and smooth drag-and-drop interactions.
 
