@@ -40,7 +40,7 @@
 ## 🗂 Project Structure
 
 ```
-WordBlast/
+scramblr/
 ├── App.js                        # Root navigator
 ├── src/
 │   ├── constants.js              # Theme, colors, config
