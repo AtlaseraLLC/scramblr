@@ -420,3 +420,19 @@
 {"_e":"metro:bundling:progress","_t":1781491667515,"id":"1","progress":0.9972546341021615,"total":728,"current":727}
 {"_e":"metro:bundling:progress","_t":1781491668593,"id":"1","progress":0.999,"total":728,"current":728}
 {"_e":"metro:bundling:failed","_t":1781491668632,"id":"1","message":"Unable to resolve \"../constants\" from \"src/components/AnswerSlot.js\"\n  1 | import React, { useRef, useEffect } from 'react';\n  2 | import { View, Text, TouchableOpacity, Animated, StyleSheet } from 'react-native';\n> 3 | import { COLORS, TILE_SIZE, TILE_COLORS } from '../constants';\n    |                                                 ^\n  4 |\n  5 | export default function AnswerSlot({ index, letter, colorIndex, isCorrect, onPress }) {\n  6 |   const scaleAnim = useRef(new Animated.Value(1)).current;","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc/components/AnswerSlot.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../constants\"\u001b[39m\n\n\u001b[90m \u001b[39msrc/screens/GameScreen.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"../components/AnswerSlot\"\u001b[39m\n\n\u001b[90m \u001b[39mApp.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/screens/GameScreen\"\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90mnode_modules/\u001b[1mexpo\u001b[22m/AppEntry.js\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"../../App\"\u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m \u001b[39m\u001b[90m\u001b[39m\n\u001b[90m\u001b[90m |\u001b[39m\u001b[90m \u001b[36mimport\u001b[39m\u001b[90m \u001b[32m\"./node_modules/\u001b[1mexpo\u001b[22m/AppEntry\"\u001b[39m\u001b[90m\u001b[39m\n","filename":null,"targetModuleName":"../constants","originModulePath":"src/components/AnswerSlot.js"}
+{"_e":"metro:bundling:started","_t":1781491713374,"id":"2","platform":"android","environment":null,"entry":"node_modules/expo/AppEntry.js"}
+{"_e":"metro:bundling:progress","_t":1781491713375,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781491713379,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1781491713478,"id":"2","progress":0.06544077879935101,"total":172,"current":44}
+{"_e":"metro:bundling:progress","_t":1781491713578,"id":"2","progress":0.34539048676584283,"total":439,"current":258}
+{"_e":"metro:bundling:progress","_t":1781491713678,"id":"2","progress":0.7874868888759397,"total":524,"current":465}
+{"_e":"metro:bundling:progress","_t":1781491713778,"id":"2","progress":0.8516046926102981,"total":609,"current":562}
+{"_e":"metro:bundling:progress","_t":1781491713890,"id":"2","progress":0.9619082840236686,"total":728,"current":714}
+{"_e":"metro:bundling:progress","_t":1781491713991,"id":"2","progress":0.999,"total":738,"current":738}
+{"_e":"metro:bundling:done","_t":1781491714316,"id":"2","total":738,"ms":941.815584}
+{"_e":"root:init","_t":1781491894359,"format":"v0-jsonl","version":"56.1.15"}
+{"_e":"env:mode","_t":1781491894359,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1781491894361,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1781491894530,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1781491894783,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1781491895404,"atlas":false,"workers":7,"host":"::","port":8081}

@@ -159,10 +159,7 @@ export default function MenuScreen() {
 
             {/* Title */}
             <Animated.View style={[styles.titleWrap, { opacity: titleOp }]}>
-                <Text style={styles.titleWord}>WORD</Text>
-                <View style={styles.titleBadge}>
-                    <Text style={styles.titleBlast}>BLAST</Text>
-                </View>
+                <Text style={styles.titleWord}>SCRAMBLR</Text>
                 <Text style={styles.diffTag}>
                     MODE: <Text style={{ color: DIFFICULTY_CONFIG[state.difficulty].color }}>
                     {state.difficulty}
