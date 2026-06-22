@@ -177,7 +177,7 @@ export default function MenuScreen() {
 
             {/* Decorative ticker */}
             <Text style={styles.ticker}>
-                ★ DRAG TILES ★ FORM WORDS ★ BEAT THE CLOCK ★ WORDBLAST ★
+                ★ DRAG TILES ★ FORM WORDS ★ BEAT THE CLOCK ★ SCRAMBLR ★
             </Text>
 
             <AboutModal    visible={showAbout}    onClose={() => setShowAbout(false)} />
