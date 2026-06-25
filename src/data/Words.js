@@ -43,6 +43,7 @@ export const WORD_BANK = {
         { word: 'FROZEN', hint: 'Turned to ice',                 category: 'Nature'  },
         { word: 'PLANET', hint: 'Orbits a star',                 category: 'Nature'  },
         { word: 'LIZARD', hint: 'Scaly reptile',                 category: 'Animals' },
+        { word: 'PLANET',   hint: 'Orbits a star',              category: 'Space' },
     ],
 
     HARD: [
