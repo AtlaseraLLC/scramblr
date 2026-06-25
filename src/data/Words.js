@@ -20,6 +20,7 @@ export const WORD_BANK = {
         { word: 'FROG', hint: 'Jumps and croaks',            category: 'Animals' },
         { word: 'DRUM', hint: 'You hit it to make music',    category: 'Music'   },
         { word: 'STAR', hint: 'Shines at night',             category: 'Nature'  },
+        { word: 'BIRD',   hint: 'Flies in the sky',              category: 'Nature' },
     ],
 
     MEDIUM: [
@@ -43,8 +44,8 @@ export const WORD_BANK = {
         { word: 'FROZEN', hint: 'Turned to ice',                 category: 'Nature'  },
         { word: 'PLANET', hint: 'Orbits a star',                 category: 'Nature'  },
         { word: 'LIZARD', hint: 'Scaly reptile',                 category: 'Animals' },
-        { word: 'PLANET',   hint: 'Orbits a star',              category: 'Space' },
-        { word: 'BIRD',   hint: 'Flies in the sky',              category: 'Nature' },
+        { word: 'PLANET',   hint: 'Orbits a star',              category: 'Nature' },
+        { word: 'PIZZA',   hint: 'An Italian snack',              category: 'Food' },
     ],
 
     HARD: [
