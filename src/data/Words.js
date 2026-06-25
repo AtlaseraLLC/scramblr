@@ -44,6 +44,7 @@ export const WORD_BANK = {
         { word: 'PLANET', hint: 'Orbits a star',                 category: 'Nature'  },
         { word: 'LIZARD', hint: 'Scaly reptile',                 category: 'Animals' },
         { word: 'PLANET',   hint: 'Orbits a star',              category: 'Space' },
+        { word: 'BIRD',   hint: 'Flies in the sky',              category: 'Nature' },
     ],
 
     HARD: [
