@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     logoText: {
-        fontSize: 72,
+        fontSize: 64,
         fontWeight: '900',
         fontFamily: 'monospace',
         color: COLORS.neonCyan,
