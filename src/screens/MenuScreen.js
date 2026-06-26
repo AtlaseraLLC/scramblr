@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
         marginBottom: 48,
     },
     titleWord: {
-        fontSize: 56,
+        fontSize: 46,
         fontWeight: '900',
         fontFamily: 'monospace',
         color: COLORS.neonCyan,

@@ -37,7 +37,7 @@ export const DIFFICULTY = {
 };
 
 /**
- * 
+ *
  * @type {{[DIFFICULTY.EASY]: {maxLetters: number, lives: number, timeBonus: number, label: string, color: string}, [DIFFICULTY.MEDIUM]: {maxLetters: number, lives: number, timeBonus: number, label: string, color: string}, [DIFFICULTY.HARD]: {maxLetters: number, lives: number, timeBonus: number, label: string, color: string}}}
  */
 export const DIFFICULTY_CONFIG = {
