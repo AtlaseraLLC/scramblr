@@ -2,6 +2,16 @@ import React, { useRef, useEffect } from 'react';
 import { Animated, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { COLORS, TILE_SIZE, TILE_COLORS } from '../utils/Constants';
 
+/**
+ * @param param0
+ * @param param0.letter
+ * @param param0.colorIndex
+ * @param param0.tileKey
+ * @param param0.onTap
+ * @param param0.isPlaced
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 export default function LetterTile({ letter, colorIndex, tileKey, onTap, isPlaced }) {
   const scaleAnim = useRef(new Animated.Value(0)).current;
   const tileColor = TILE_COLORS[colorIndex % TILE_COLORS.length];

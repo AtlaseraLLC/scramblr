@@ -36,8 +36,12 @@ export const DIFFICULTY = {
     HARD:   'HARD',
 };
 
+/**
+ * 
+ * @type {{[DIFFICULTY.EASY]: {maxLetters: number, lives: number, timeBonus: number, label: string, color: string}, [DIFFICULTY.MEDIUM]: {maxLetters: number, lives: number, timeBonus: number, label: string, color: string}, [DIFFICULTY.HARD]: {maxLetters: number, lives: number, timeBonus: number, label: string, color: string}}}
+ */
 export const DIFFICULTY_CONFIG = {
-    [DIFFICULTY.EASY]:   { maxLetters: 4, lives: 3, timeBonus: 10, label: 'EASY',   color: '#39FF14' },
+    [DIFFICULTY.EASY]:   { maxLetters: 4, lives: 5, timeBonus: 10, label: 'EASY',   color: '#39FF14' },
     [DIFFICULTY.MEDIUM]: { maxLetters: 6, lives: 3, timeBonus: 20, label: 'MEDIUM', color: '#F5E642' },
     [DIFFICULTY.HARD]:   { maxLetters: 9, lives: 2, timeBonus: 40, label: 'HARD',   color: '#FF2D78' },
 };

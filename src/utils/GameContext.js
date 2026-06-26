@@ -8,7 +8,7 @@ const initialState = {
     difficulty:   DIFFICULTY.MEDIUM,
     soundEnabled: true,
 
-    // game session
+    // Game session
     words:        [],
     wordIndex:    0,
     lives:        3,

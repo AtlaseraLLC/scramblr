@@ -72,6 +72,12 @@ export const WORD_BANK = {
     ],
 };
 
+/**
+ *
+ * @param difficulty
+ * @param count
+ * @returns {*[]}
+ */
 export function getWordsForDifficulty(difficulty, count = 5) {
     const pool = [...WORD_BANK[difficulty]];
     const selected = [];
@@ -82,9 +88,14 @@ export function getWordsForDifficulty(difficulty, count = 5) {
     return selected;
 }
 
+/**
+ *
+ * @param word
+ * @returns {*}
+ */
 export function scrambleWord(word) {
     const letters = word.split('');
-    // Guarantee it's not the same as the original
+    // Guarantee it's different from the original
     let scrambled;
     let attempts = 0;
     do {

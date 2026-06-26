@@ -2,6 +2,17 @@ import React, { useRef, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Animated, StyleSheet } from 'react-native';
 import { COLORS, TILE_SIZE, TILE_COLORS } from '../utils/Constants';
 
+/**
+ *
+ * @param param0
+ * @param param0.index
+ * @param param0.letter
+ * @param param0.colorIndex
+ * @param param0.isCorrect
+ * @param param0.onPress
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 export default function AnswerSlot({ index, letter, colorIndex, isCorrect, onPress }) {
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const glowAnim  = useRef(new Animated.Value(0)).current;
