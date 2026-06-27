@@ -8,40 +8,9 @@ import { useGame } from '../utils/GameContext';
 
 const { width } = Dimensions.get('window');
 
-// ─── ABOUT MODAL ─────────────────────────────────────────────────────────────
-function AboutModal({ visible, onClose }) {
-    return (
-        <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
-            <View style={modal.overlay}>
-                <View style={modal.box}>
-                    <View style={modal.header}>
-                        <Text style={modal.title}>ABOUT</Text>
-                        <TouchableOpacity onPress={onClose} style={modal.closeBtn}>
-                            <Text style={modal.closeText}>✕</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <ScrollView style={{ maxHeight: 320 }}>
-                        <Text style={modal.body}>
-                            SCRAMBLR is a fast-paced letter unscramble game.{'\n\n'}
-                            Drag each letter tile into the correct slot to form the hidden word before you run out of lives.{'\n\n'}
-                            {'▸'} 3 difficulty modes{'\n'}
-                            {'▸'} 5 words per round{'\n'}
-                            {'▸'} Bonus points for speed{'\n'}
-                            {'▸'} Themed word categories{'\n\n'}
-                            Built with React Native.{'\n'}
-                            Version 1.0.0
-                        </Text>
-                    </ScrollView>
-                </View>
-            </View>
-        </Modal>
-    );
-}
-
 // ─── SETTINGS MODAL ──────────────────────────────────────────────────────────
 function SettingsModal({ visible, onClose }) {
     const { state, dispatch } = useGame();
-
     return (
         <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
             <View style={modal.overlay}>
@@ -56,8 +25,8 @@ function SettingsModal({ visible, onClose }) {
                     <Text style={modal.sectionLabel}>DIFFICULTY</Text>
                     <View style={settings.diffRow}>
                         {Object.values(DIFFICULTY).map(d => {
-                            const cfg     = DIFFICULTY_CONFIG[d];
-                            const active  = state.difficulty === d;
+                            const cfg    = DIFFICULTY_CONFIG[d];
+                            const active = state.difficulty === d;
                             return (
                                 <TouchableOpacity
                                     key={d}
@@ -103,7 +72,7 @@ function MenuButton({ label, accent, onPress, delay }) {
                 Animated.timing(opacity,    { toValue: 1, duration: 300, useNativeDriver: true }),
             ]).start();
         }, delay);
-    }, [delay, opacity, translateX]);
+    }, []);
 
     const onPressIn  = () => Animated.spring(scaleAnim, { toValue: 0.96, useNativeDriver: true }).start();
     const onPressOut = () => Animated.spring(scaleAnim, { toValue: 1,    useNativeDriver: true }).start();
@@ -128,38 +97,33 @@ function MenuButton({ label, accent, onPress, delay }) {
 // ─── MAIN MENU ────────────────────────────────────────────────────────────────
 export default function MenuScreen() {
     const { state, dispatch } = useGame();
-    const [showAbout,    setShowAbout]    = useState(false);
     const [showSettings, setShowSettings] = useState(false);
-    const titleOp  = useRef(new Animated.Value(0)).current;
+    const titleOp   = useRef(new Animated.Value(0)).current;
     const scanlineY = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
         Animated.timing(titleOp, { toValue: 1, duration: 600, useNativeDriver: true }).start();
-
         Animated.loop(
             Animated.timing(scanlineY, { toValue: 1, duration: 3000, useNativeDriver: true })
         ).start();
-    }, [scanlineY, titleOp]);
-
-    const handleQuit = () => BackHandler.exitApp();
+    }, []);
 
     return (
         <View style={styles.container}>
-            {/* Scanline effect */}
             <Animated.View
                 pointerEvents="none"
                 style={[styles.scanline, {
                     transform: [{
-                        translateY: scanlineY.interpolate({
-                            inputRange: [0, 1], outputRange: [-20, 900],
-                        }),
+                        translateY: scanlineY.interpolate({ inputRange: [0, 1], outputRange: [-20, 900] }),
                     }],
                 }]}
             />
 
-            {/* Title */}
             <Animated.View style={[styles.titleWrap, { opacity: titleOp }]}>
-                <Text style={styles.titleWord}>SCRAMBLR</Text>
+                <Text style={styles.titleWord}>WORD</Text>
+                <View style={styles.titleBadge}>
+                    <Text style={styles.titleBlast}>BLAST</Text>
+                </View>
                 <Text style={styles.diffTag}>
                     MODE: <Text style={{ color: DIFFICULTY_CONFIG[state.difficulty].color }}>
                     {state.difficulty}
@@ -167,20 +131,17 @@ export default function MenuScreen() {
                 </Text>
             </Animated.View>
 
-            {/* Buttons */}
             <View style={styles.btnList}>
-                <MenuButton label="PLAY"     accent={COLORS.neonGreen}  onPress={() => dispatch({ type: 'START_GAME' })} delay={100} />
-                <MenuButton label="SETTINGS" accent={COLORS.neonYellow} onPress={() => setShowSettings(true)}           delay={200} />
-                <MenuButton label="ABOUT"    accent={COLORS.neonCyan}   onPress={() => setShowAbout(true)}              delay={300} />
-                <MenuButton label="QUIT"     accent={COLORS.neonPink}   onPress={handleQuit}                            delay={400} />
+                <MenuButton label="PLAY"     accent={COLORS.neonGreen}  onPress={() => dispatch({ type: 'START_GAME' })}                  delay={100} />
+                <MenuButton label="SETTINGS" accent={COLORS.neonYellow} onPress={() => setShowSettings(true)}                             delay={200} />
+                <MenuButton label="ABOUT"    accent={COLORS.neonCyan}   onPress={() => dispatch({ type: 'NAVIGATE', screen: 'ABOUT' })}   delay={300} />
+                <MenuButton label="QUIT"     accent={COLORS.neonPink}   onPress={() => BackHandler.exitApp()}                              delay={400} />
             </View>
 
-            {/* Decorative ticker */}
             <Text style={styles.ticker}>
-                ★ DRAG TILES ★ FORM WORDS ★ BEAT THE CLOCK ★ SCRAMBLR ★
+                ★ DRAG TILES ★ FORM WORDS ★ BEAT THE CLOCK ★ WORDBLAST ★
             </Text>
 
-            <AboutModal    visible={showAbout}    onClose={() => setShowAbout(false)} />
             <SettingsModal visible={showSettings} onClose={() => setShowSettings(false)} />
         </View>
     );
@@ -270,8 +231,7 @@ const styles = StyleSheet.create({
     ticker: {
         position: 'absolute',
         bottom: 24,
-        left: 0,
-        right: 0,
+        left: 0, right: 0,
         textAlign: 'center',
         fontSize: 9,
         fontFamily: 'monospace',
@@ -308,19 +268,11 @@ const modal = StyleSheet.create({
         color: COLORS.neonCyan,
         letterSpacing: 4,
     },
-    closeBtn: {
-        padding: 4,
-    },
+    closeBtn: { padding: 4 },
     closeText: {
         fontSize: 16,
         color: COLORS.textMuted,
         fontFamily: 'monospace',
-    },
-    body: {
-        fontSize: 13,
-        fontFamily: 'monospace',
-        color: COLORS.textPrimary,
-        lineHeight: 22,
     },
     sectionLabel: {
         fontSize: 10,

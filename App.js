@@ -8,37 +8,30 @@ import SplashScreen  from './src/screens/SplashScreen';
 import MenuScreen    from './src/screens/MenuScreen';
 import GameScreen    from './src/screens/GameScreen';
 import ResultScreen  from './src/screens/ResultScreen';
+import AboutScreen   from './src/screens/AboutScreen';
 
-/**
- *
- * @returns {React.JSX.Element}
- * @constructor
- */
 function Navigator() {
     const { state } = useGame();
-
     switch (state.screen) {
         case 'SPLASH':  return <SplashScreen />;
         case 'MENU':    return <MenuScreen />;
         case 'GAME':    return <GameScreen />;
         case 'RESULT':  return <ResultScreen />;
+        case 'ABOUT':   return <AboutScreen />;
         default:        return <MenuScreen />;
     }
 }
 
-/**
- *
- * @returns {React.JSX.Element}
- * @constructor
- */
 export default function App() {
     return (
-        <GameProvider>
-            <StatusBar barStyle="light-content" backgroundColor={COLORS.bg} />
-            <SafeAreaView style={styles.root}>
-                <Navigator />
-            </SafeAreaView>
-        </GameProvider>
+        <SafeAreaProvider>
+            <GameProvider>
+                <StatusBar barStyle="light-content" backgroundColor={COLORS.bg} />
+                <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
+                    <Navigator />
+                </SafeAreaView>
+            </GameProvider>
+        </SafeAreaProvider>
     );
 }
 

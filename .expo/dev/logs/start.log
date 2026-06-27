@@ -774,3 +774,5 @@
 {"_e":"metro:bundling:progress","_t":1782484585295,"id":"1","progress":0.999,"total":728,"current":728}
 {"_e":"metro:bundling:progress","_t":1782484585396,"id":"1","progress":0.999,"total":738,"current":738}
 {"_e":"metro:bundling:done","_t":1782484585643,"id":"1","total":738,"ms":8605.228125}
+{"_e":"metro:server_log","_t":1782490711744,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.exponent","sdk_gphone16k_arm64 - 17 - API 37","60"]}
+{"_e":"metro:server_log","_t":1782490711760,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.Exponent","iPhone 17 Pro","60"]}
