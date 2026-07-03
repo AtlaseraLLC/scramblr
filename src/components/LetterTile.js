@@ -1,5 +1,11 @@
 import React, { useRef, useEffect } from 'react';
-import { Animated, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import {
+  Animated,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  View,
+} from 'react-native';
 import { COLORS, TILE_SIZE, TILE_COLORS } from '../utils/Constants';
 
 /**
@@ -12,13 +18,22 @@ import { COLORS, TILE_SIZE, TILE_COLORS } from '../utils/Constants';
  * @returns {React.JSX.Element}
  * @constructor
  */
-export default function LetterTile({ letter, colorIndex, tileKey, onTap, isPlaced }) {
+export default function LetterTile({
+  letter,
+  colorIndex,
+  tileKey,
+  onTap,
+  isPlaced,
+}) {
   const scaleAnim = useRef(new Animated.Value(0)).current;
   const tileColor = TILE_COLORS[colorIndex % TILE_COLORS.length];
 
   useEffect(() => {
     Animated.spring(scaleAnim, {
-      toValue: 1, friction: 5, tension: 120, useNativeDriver: false,
+      toValue: 1,
+      friction: 5,
+      tension: 120,
+      useNativeDriver: false,
     }).start();
   }, []);
 
@@ -34,13 +49,17 @@ export default function LetterTile({ letter, colorIndex, tileKey, onTap, isPlace
     if (isPlaced) return;
     Animated.sequence([
       Animated.spring(scaleAnim, { toValue: 0.85, useNativeDriver: false }),
-      Animated.spring(scaleAnim, { toValue: 1,    useNativeDriver: false }),
+      Animated.spring(scaleAnim, { toValue: 1, useNativeDriver: false }),
     ]).start();
     onTap(tileKey);
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} activeOpacity={isPlaced ? 1 : 0.8} disabled={isPlaced}>
+    <TouchableOpacity
+      onPress={handlePress}
+      activeOpacity={isPlaced ? 1 : 0.8}
+      disabled={isPlaced}
+    >
       <Animated.View
         style={[
           styles.tile,
@@ -65,7 +84,7 @@ export default function LetterTile({ letter, colorIndex, tileKey, onTap, isPlace
 
 const styles = StyleSheet.create({
   tile: {
-    width:  TILE_SIZE,
+    width: TILE_SIZE,
     height: TILE_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
@@ -88,7 +107,9 @@ const styles = StyleSheet.create({
   },
   gloss: {
     position: 'absolute',
-    top: 0, left: 0, right: 0,
+    top: 0,
+    left: 0,
+    right: 0,
     height: '45%',
     backgroundColor: 'rgba(255,255,255,0.18)',
   },
